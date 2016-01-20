@@ -1,0 +1,10 @@
+<h1>All Ships</h1>
+
+<%= link_to "Create a Ship" , new_ship_path %>
+
+<% @all_ships.each do |ship| %>
+	<li><%= ship.ship_name %></li>
+	<li><%= ship.container_qty %></li>
+	<li><%= ship.user_id %></li>
+	<li><%= ship.current_location %></li>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Ships#edit</h1>
+<p>Find me in app/views/ships/edit.html.erb</p>
+
+<%= form_for @ship do |f| %>
+	<%= f.label :ship_name %>
+	<%= f.text_field :ship_name %>
+	<%= f.label :container_qty %>
+	<%= f.text_field :container_qty %>
+	<%= f.label :location_id %>
+	<%= f.text_field :location_id %>
+	<%= f.submit "Edit Ship" %>
+<% end %>
