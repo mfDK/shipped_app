@@ -26,6 +26,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+# Using bootstrap for a more responsive layout
+# I am using the Michael Hartl rails book as a 
+# reference
+
+gem 'paperclip', '~> 4.3', '>= 4.3.2'
+# This is the paper clip gem used to upload images
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

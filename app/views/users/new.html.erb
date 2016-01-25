@@ -1,12 +1,20 @@
 <h1>Users#new</h1>
 <p>This will be the users sign up page</p>
 
-<%=  form_for @user do |f|  %>
-	<%=  f.label :email %>
-	<%=  f.text_field :email %>
-	<%=  f.label :password %>
-	<%=  f.password_field :password %>
-	<%=  f.label :password_confirmation %>
-	<%=  f.password_field :password_confirmation %>
-	<%=  f.submit "Create User" %>
+
+	<%=  form_for @user do |f|  %>
+		<%=  f.label :email %>
+		<%=  f.text_field :email %>
+		<%=  f.label :password %>
+		<%=  f.password_field :password %>
+		<%=  f.label :password_confirmation %>
+		<%=  f.password_field :password_confirmation %>
+		<%=  f.submit "Create User" %>
+	<% end %>
+
+
+<% if @user.errors.any? %>
+		<% @user.errors.full_messages.each do |e_message| %>
+		<li><%= e_message %></li>
+		<% end %> 
 <% end %>

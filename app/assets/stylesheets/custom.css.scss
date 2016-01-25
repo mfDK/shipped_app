@@ -1,0 +1,59 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*  HEADER NAVBAR */
+
+.navbar {
+	height: 90px;
+	width: 102%;
+	right: 2px;
+	background-color: white;
+}
+
+.navbar-brand {
+	height: 90px;
+    width: 200px;
+}
+
+.navbar-nav {
+	padding-top: 20px;
+	li {
+		a {
+			font-size: 20px;
+			font-weight: 900;
+		}
+	}
+}
+
+#logo {
+	width: 100%;
+	height: 100%;
+}
+
+
+/*  This is for the /root page */
+
+#main {
+	height: 600px;
+	width: 100%;
+	text-align: center;
+}
+
+/*  This is for the main page after user logs in */
+
+.row {
+	.col-md-8 {
+		h2 {
+			text-align: center;
+		}
+	}
+	.col-md-4 {
+		a {
+			margin-top: 20px;
+			margin-left: 230px;
+		}
+	}
+}
+
+

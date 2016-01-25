@@ -6,7 +6,6 @@
 	<%= f.text_field :ship_name %>
 	<%= f.label :container_qty %>
 	<%= f.text_field :container_qty %>
-	<%= f.label :location_id %>
-	<%= f.text_field :location_id %>
+	<%= f.select :current_location , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']]%>
 	<%= f.submit "Edit Ship" %>
 <% end %>

@@ -1,0 +1,14 @@
+<h1>Jobs#show</h1>
+<p>Find me in app/views/jobs/show.html.erb</p>
+
+
+<h3><%= @job.id %></h3>
+<h3><%= @job.name %></h3>
+<li><%= @job.container_need %></li>
+<li><%= @job.cargo %></li>
+<li><%= @job.cost %></li>
+<li><%= @job.origin %></li>
+<li><%= @job.destination %></li>
+<li><%= @job.ship_id %></li>
+
+<%= link_to "Edit Job" , edit_user_job_path %>

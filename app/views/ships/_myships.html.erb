@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-md-8"><h2>My Ships</h2></div>
+	<div class="col-md-4"><a class="btn btn-primary" href="/ships/new">Create Ship</a></div>
+</div>
+
+<table class="table">
+<thead class="thead-inverse">
+	<tr>
+		<th>#</th>
+		<th>Picture</th>
+		<th>Ship Name</th>
+		<th>Container Qty</th>
+		<th>Current Location</th>
+		<th>Edit?</th>
+	</tr>
+</thead>
+	<tbody>
+	<% @my_ships.each do |ship| %>
+		<tr>
+			<td><%= ship.id %></td>
+			<td><%= image_tag ship.avatar.url(:thumb) %></td>
+			<td><%= ship.ship_name.capitalize %></td>
+			<td><%= ship.container_qty %></td>
+			<td><%= ship.current_location %></td>
+			<td><%= link_to "Edit Ship" , edit_ship_path(ship.id) %></td>
+		</tr>	
+	<% end %>
+	</tbody>
+</table>

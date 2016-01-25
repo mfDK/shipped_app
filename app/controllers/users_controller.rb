@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   	@my_ships = Ship.where(user_id: current_user)
+    @my_jobs = Job.where(user_id: current_user)
+    # I feel like using partials this way defeats
+    # the purpose of MVC
   end
 
   def new
@@ -15,9 +18,9 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-  		redirect_to users_path
+  		redirect_to login_path
   	else
-  		redirect_to new_users_path
+  		render new_user_path
   	end
   end
 

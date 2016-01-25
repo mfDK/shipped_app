@@ -9,16 +9,15 @@ class ShipsController < ApplicationController
   end
 
   def new
-  	@list_locations = ["beirut","singapore","naples"]
   	@ship = Ship.new
   end
 
   def create
-  	@ship = current_user.ships.build(ship_params)
+  	@ship = current_user.ships.new(ship_params)
   	if @ship.save
-  		redirect_to ships_path
+  		redirect_to user_path(current_user)
   	else
-  		redirect_to new_ship_path
+  		render :new
   	end
   end
 
@@ -30,7 +29,7 @@ class ShipsController < ApplicationController
   	@ship = Ship.find(params[:id])
   	@ship.update(ship_params)
   	@ship.save 
-  	redirect_to ships_path
+  	redirect_to user_path(current_user)
   end
 
   def destroy
@@ -40,7 +39,7 @@ class ShipsController < ApplicationController
 
   private
   def ship_params
-  	params.require(:ship).permit(:ship_name,:container_qty,:current_location)
+  	params.require(:ship).permit(:ship_name,:container_qty,:current_location,:avatar)
   end
 
 end

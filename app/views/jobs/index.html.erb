@@ -1,0 +1,20 @@
+<h1>Jobs#index</h1>
+<p>List of All Jobs</p>
+
+<% @jobs.each do |job| %>
+	<h3><%= job.name %></h3>
+	<h5>Cargo: </h5> 
+	<%= job.cargo %>
+	<h5>Containers Required: </h5>
+	<%= job.container_need %>
+	<h5>Cost: </h5>
+	<%= job.cost %>
+	<h5>Origin Location: </h5>
+	<%= job.origin %>
+	<h5>Destination Location: </h5>
+	<%= job.destination %>
+	<h5>Job Created By: </h5>
+	<%= job.user_id %>
+	<h5>Ship Assigned: </h5>
+	<%= job.ship_id %>
+<% end %>

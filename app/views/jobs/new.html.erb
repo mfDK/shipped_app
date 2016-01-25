@@ -1,0 +1,26 @@
+<h1>Jobs#new</h1>
+<p>Create a New Job associated with the current user</p>
+
+<%= form_for [current_user,@job] do |f| %>
+  <%= f.label :name , "Job Name: "%> <br>
+  <%= f.text_field :name %> <br>
+  <%= f.label :container_need , "Containers Required: " %><br>
+  <%= f.text_field :container_need %><br>
+  <%= f.label :cargo , "Cargo: "%><br>
+  <%= f.text_field :cargo %><br>
+  <%= f.label :cost , "Cost of Job: "%><br>
+  <%= f.text_field :cost %><br>
+  <%= f.label :origin %><br>
+  <%= f.select :origin , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] , prompt: true %><br>
+  <%= f.label :destination %><br>
+  <%= f.select :destination , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] , prompt: true %><br>
+  <%= f.label :ship_id , "Assign to Ship" %> <br>
+  <%= collection_select :job , :ship_id , Ship.all , :id, :ship_name, prompt: true %><br>
+  <%= f.submit "Submit Job" %>
+<% end %>
+
+<% if @job.errors.any? %>
+  <% @job.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>

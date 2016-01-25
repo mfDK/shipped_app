@@ -1,0 +1,26 @@
+<h1>Jobs#edit</h1>
+<p>Find me in app/views/jobs/edit.html.erb</p>
+
+<%= form_for [current_user,@job] do |f|  %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<%= f.label :container_need %>
+	<%= f.text_field :container_need %>
+	<%= f.label :cargo %>
+	<%= f.text_field :cargo %>
+	<%= f.label :cost %>
+	<%= f.text_field :cost %>
+	<%= f.select :origin , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] %>
+	<%= f.select :destination , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] %>
+	<%= f.label :ship_id , "Assign to Ship" %> 
+  <%= collection_select :job , :ship_id , Ship.all , :id, :ship_name, prompt: true %>
+  <%= f.submit "Edit Job" %>
+<% end %>
+
+<%= link_to "Delete Job" , [current_user,@job] , method: :delete %>
+
+<% if @job.errors.any? %>
+  <% @job.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>

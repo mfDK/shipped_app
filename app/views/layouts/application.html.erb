@@ -7,15 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<header>
-	<nav>
-		<ul>
-			<li><%= link_to "Home" , root_path %></li>
-			<li><%= link_to "Users" , users_path %></li>
-			<li><%= link_to "Ships" , ships_path %></li>
-		</ul>
-	</nav>
-</header>
+	<header>
+		<nav class="navbar navbar-default" role="navigation	">
+			<div class="container">
+				<div class="navbar-brand">
+					<a href="/"><%= image_tag "shypper.png" , id: "logo" %></a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="/users">Users</a></li>
+					<li class="nav-item"><a class="nav-link" href="/ships">Ships</a></li>
+					<li class="nav-item"><a class="nav-link" href="/users/:user_id/jobs">Jobs</a></li>
+					<li class="nav-item"><a class="nav-link" href="/logout">Log Out</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>	
 
 <%= yield %>
 

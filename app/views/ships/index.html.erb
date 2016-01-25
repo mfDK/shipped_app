@@ -3,8 +3,13 @@
 <%= link_to "Create a Ship" , new_ship_path %>
 
 <% @all_ships.each do |ship| %>
-	<li><%= ship.ship_name %></li>
+	<h2>Ship Name</h2>
+	<h3><%= ship.ship_name %></h3>
+	<h4>Max Container Qty.</h4>
 	<li><%= ship.container_qty %></li>
+	<h4>Ship Belongs To: </h4>
 	<li><%= ship.user_id %></li>
+	<h4>Current Location</h4>
 	<li><%= ship.current_location %></li>
+	<%= link_to "Show Info" , ship_path(ship.id) %>
 <% end %>

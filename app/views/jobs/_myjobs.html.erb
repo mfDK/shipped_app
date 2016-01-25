@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="col-md-8"><h2>My Jobs</h2></div>
+	<div class="col-md-4"><a class="btn btn-primary" href="/users/<%= params[:id] %>/jobs/new">Create Job</a></div>
+</div>
+<table class="table">
+	<thead class="thead-inverse">
+		<tr>
+			<th>#</th>
+			<th>Job Name</th>
+			<th>Container Req'</th>
+			<th>Cargo</th>
+			<th>Cost</th>
+			<th>Origin</th>
+			<th>Destination</th>
+			<th>Ship Assigned</th>
+		</tr>		
+	</thead>
+	<tbody>
+		<% @my_jobs.each do |job| %>
+			<tr>
+				<td><%= job.id %></td>
+				<td><a href="/users/<%= job.user_id %>/jobs/<%= job.id %>"><%= job.name %></a></td>
+				<td><%= job.container_need %></td>
+				<td><%= job.cargo %></td>
+				<td><%= job.cost %></td>
+				<td><%= job.origin %></td>
+				<td><%= job.destination %></td>
+				<td><%= job.ship_id %></td>
+			</tr>
+		<% end %>	
+	</tbody>
+</table>

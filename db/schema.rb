@@ -11,18 +11,48 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120184345) do
+ActiveRecord::Schema.define(version: 20160124192304) do
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "container_need"
+    t.string   "cargo"
+    t.decimal  "cost"
+    t.string   "origin"
+    t.string   "destination"
+    t.integer  "user_id"
+    t.integer  "ship_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "jobs", ["ship_id"], name: "index_jobs_on_ship_id"
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "ships", force: :cascade do |t|
     t.string   "ship_name"
     t.integer  "container_qty"
     t.integer  "user_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.string   "current_location"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "ships", ["user_id"], name: "index_ships_on_user_id"
+
+  create_table "userfollowships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ship_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "userfollowships", ["ship_id"], name: "index_userfollowships_on_ship_id"
+  add_index "userfollowships", ["user_id"], name: "index_userfollowships_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

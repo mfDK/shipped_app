@@ -1,11 +1,10 @@
 <%= @user.email %>
 <%= link_to "Edit My Credentials" , edit_user_path %>
-<%= link_to "Log Out" , log_out_path %>
 
-<h4><%= link_to "Create New Ship" , new_ship_path %></h4>
-<h4><%= link_to "Create New Location" , new_location_path %></h4>
+<h4><%= link_to "All Jobs" , user_jobs_path(current_user) %></h4>
 
-<h3>My Ships</h3>
-<%= render 'allships' %>
+<%= render 'ships/myships' %>
+
+<%= render 'jobs/myjobs' %>
 
 
