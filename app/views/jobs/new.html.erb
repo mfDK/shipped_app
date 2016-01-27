@@ -1,22 +1,36 @@
+<div class="container">
 <h1>Jobs#new</h1>
 <p>Create a New Job associated with the current user</p>
-
-<%= form_for [current_user,@job] do |f| %>
-  <%= f.label :name , "Job Name: "%> <br>
-  <%= f.text_field :name %> <br>
-  <%= f.label :container_need , "Containers Required: " %><br>
-  <%= f.text_field :container_need %><br>
-  <%= f.label :cargo , "Cargo: "%><br>
-  <%= f.text_field :cargo %><br>
-  <%= f.label :cost , "Cost of Job: "%><br>
-  <%= f.text_field :cost %><br>
-  <%= f.label :origin %><br>
-  <%= f.select :origin , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] , prompt: true %><br>
-  <%= f.label :destination %><br>
+<%= form_for [current_user,@job] , :html => { :class => "form-horizontal" } do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :name , "Job Name: "%>
+    <%= f.text_field :name %> <br>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :container_need , "Containers Required: " %>
+    <%= f.text_field :container_need %><br>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :cargo , "Cargo: "%>
+    <%= f.text_field :cargo %><br>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :cost , "Cost of Job: "%>
+    <%= f.text_field :cost %><br>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :origin %>
+    <%= f.select :origin , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] , prompt: true %><br>
+  </fieldset>
+  <fieldset class="form-group">
+  <%= f.label :destination %>
   <%= f.select :destination , [['Beirut','beirut'],['Naples','naples'],['Singapore','singapore']] , prompt: true %><br>
-  <%= f.label :ship_id , "Assign to Ship" %> <br>
+  </fieldset>
+  <fieldset class="form-group">
+  <%= f.label :ship_id , "Assign to Ship" %>
   <%= collection_select :job , :ship_id , Ship.all , :id, :ship_name, prompt: true %><br>
-  <%= f.submit "Submit Job" %>
+  </fieldset>
+  <%= f.submit "Submit Job" , class: "btn btn-primary" %>
 <% end %>
 
 <% if @job.errors.any? %>
@@ -24,3 +38,4 @@
     <li><%= msg %></li>
   <% end %>
 <% end %>
+</div>

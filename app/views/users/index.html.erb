@@ -1,14 +1,27 @@
-<h1>This will be an index of all users</h1>
-
-<% @users.each do |user| %>
-	<%= user.id %>
-	<%= user.email %>
-	<%= link_to "Show" , user_path(user.id) %>
-<% end %> 
-
+<div class="container">
+	<h1>All Users</h1>
+	<h5> Current User is: <%= current_user.id %></h5> 
+	<table class="table">
+		<thead>
+			<tr>
+				<td>#</td>
+				<td>Email</td>
+				<td>Created</td>
+				<td>Show</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @users.each do |user| %>
+				<tr>
+					<td><%= user.id %></td>
+					<td><%= user.email %></td>
+					<td><%= user.created_at.strftime("%b %d, %y") %></td>
+					<td><%= link_to "Info" , user_path(user.id) %></td>
+				</tr>
+			<% end %> 
+		</tbody>
+	</table>
 <% if flash[:notice]  %>
-	<div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
-
-<h5> Current User is: <%= current_user.id %></h5> 
+			<div class="notice"><%= flash[:notice] %></div>
+		<% end %>
+</div>

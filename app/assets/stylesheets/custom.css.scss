@@ -31,6 +31,10 @@
 	height: 100%;
 }
 
+/* container test */
+.container {
+	text-align: center;
+}
 
 /*  This is for the /root page */
 
@@ -54,6 +58,25 @@
 			margin-left: 230px;
 		}
 	}
+}
+
+/* forms */
+
+.upload {
+	margin: 0 auto;
+}
+
+.container {
+	.btn-danger {
+		margin-top: 20px;
+	}
+}
+
+
+/* buttons */
+
+.submit-button {
+	border: 1px solid black;
 }
 
 

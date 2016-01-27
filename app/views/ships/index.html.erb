@@ -1,15 +1,17 @@
-<h1>All Ships</h1>
+<div class="container">
+	<h1>All Ships</h1>
 
-<%= link_to "Create a Ship" , new_ship_path %>
+	<a class="btn btn-primary" href="/ships/new">Create Ship</a>
 
-<% @all_ships.each do |ship| %>
-	<h2>Ship Name</h2>
-	<h3><%= ship.ship_name %></h3>
-	<h4>Max Container Qty.</h4>
-	<li><%= ship.container_qty %></li>
-	<h4>Ship Belongs To: </h4>
-	<li><%= ship.user_id %></li>
-	<h4>Current Location</h4>
-	<li><%= ship.current_location %></li>
-	<%= link_to "Show Info" , ship_path(ship.id) %>
-<% end %>
+	<% @all_ships.each do |ship| %>
+		<h2>Ship Name</h2>
+		<h3><%= ship.ship_name %></h3>
+		<h4>Max Container Qty.</h4>
+		<li><%= ship.container_qty %></li>
+		<h4>Ship Belongs To: </h4>
+		<li><%= ship.user_id %></li>
+		<h4>Current Location</h4>
+		<li><%= ship.current_location %></li>
+		<%= link_to "Show Info" , ship_path(ship.id) %>
+	<% end %>
+</div>
