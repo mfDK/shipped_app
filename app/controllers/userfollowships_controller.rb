@@ -5,8 +5,8 @@ class UserfollowshipsController < ApplicationController
 			# When a user clicks the follow button, a record is created in the
 			# Userfollowships table where the user_id is the current_user and 
 			# the ship_id is filled in from that instance of the ship
-			@ship = Ship.find(params[:ship_id])
-			current_user.userfollowships.build(@ship)
+			# @ship = Ship.find(params[:ship_id])
+			current_user.userfollowships.create(ship_id: params[:ship_id])
 			redirect_to :back
 	end
 	def destroy
@@ -14,8 +14,9 @@ class UserfollowshipsController < ApplicationController
 		# relationship if the user chooses to "unfollow" a ship. Find the 
 		# record of the relationship and destroy it if the user wants to 
 		# unfollow the ship. 
-		@ship = Userfollowship.where(user_id: current_user , ship_id: params[:id])
-		@ship.destroy
+		@ship = Userfollowship.where(user_id: current_user , ship_id: params[:ship_id])
+		@destroy_me = @ship.first
+		@destroy_me.destroy
 		redirect_to :back
 	end
 end

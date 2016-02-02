@@ -1,5 +1,11 @@
 <h1>Ships#show</h1>
-<p>Find me in app/views/ships/show.html.erb</p>
 
+<%= image_tag @ship.avatar.url(:thumb) %>
 <%= @ship.ship_name %>
 <%= @ship.container_qty %>
+<h3>This Ship Belongs To: </h3>
+	<%= @ship.user_id %>
+<%= @ship.current_location %>
+
+<%= render "userfollowships/follow" %>
+<%= render "userfollowships/unfollow" %>

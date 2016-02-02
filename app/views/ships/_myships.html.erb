@@ -19,7 +19,7 @@
 		<tr>
 			<td><%= ship.id %></td>
 			<td><%= image_tag ship.avatar.url(:thumb) %></td>
-			<td><%= ship.ship_name.capitalize %></td>
+			<td><a href="/ships/<%= ship.id %>"><%= ship.ship_name %></a></td>
 			<td><%= ship.container_qty %></td>
 			<td><%= ship.current_location %></td>
 			<td><%= link_to "Edit Ship" , edit_ship_path(ship.id) %></td>
